@@ -1,13 +1,14 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  text-align: center;
 }
 
 textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color: white;
   border-left: 1px solid black;
   padding: 10px;
 }
@@ -25,31 +26,16 @@ textarea {
 }
 
 .hour {
-  background-color: #ffffff;
+  background-color: lightgray;
   color: #000000;
   border-top: 1px dashed #000000;
-}
-
-.past {
-  background-color: #d3d3d3;
-  color: white;
-}
-
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-
-.future {
-  background-color: #77dd77;
-  color: white;
 }
 
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: black;
   color: white;
 }
 
@@ -57,3 +43,78 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+#hour-9 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-10 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-11 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-12 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-01 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-02 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-03 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-04 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-05 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-06 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-07 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-08 {
+  background-color: lightblue;
+  color: white;
+}
+
+#hour-09 {
+  background-color: lightblue;
+  color: white;
+}
+
+#clear {
+  margin: 40px auto;
+  padding: 5px 20px;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+

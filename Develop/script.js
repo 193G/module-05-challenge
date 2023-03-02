@@ -1,23 +1,66 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+
+// Select all save buttons
+const saveButtons = document.querySelectorAll(".saveBtn");
+
+// Add click event listener to each save button
+saveButtons.forEach((saveButton) => {
+  saveButton.addEventListener("click", function () {
+    // Get the id of the time-block containing the save button
+    const timeBlockId = this.parentNode.id;
+
+    // Get the user input description from the textarea in the time-block
+    const description = this.parentNode.querySelector(".description").value;
+
+    // Save the description in local storage using the time-block id as the key
+    localStorage.setItem(timeBlockId, description);
+  });
 });
+
+// Get the current hour in 24-hour time using Day.js
+const currentHour = dayjs().hour();
+
+// Loop through each time-block element
+$(".time-block").each(function () {
+  // Get the hour value from the time-block's id
+  const blockHour = parseInt($(this).attr("id").split("-")[1]);
+
+  // Compare the blockHour to the currentHour to determine if it's past, present, or future
+  if (blockHour < currentHour) {
+    $(this).addClass("past");
+  } else if (blockHour === currentHour) {
+    $(this).addClass("present");
+  } else {
+    $(this).addClass("future");
+  }
+});
+
+// Loop through each time-block element
+$(".time-block").each(function () {
+  // Get the id of the time-block element
+  const timeBlockId = $(this).attr("id");
+
+  // Get the saved description from localStorage using the timeBlockId as the key
+  const savedDescription = localStorage.getItem(timeBlockId);
+
+  // If there is a saved description, set the value of the textarea element
+  if (savedDescription) {
+    $(this).find(".description").val(savedDescription);
+  }
+});
+
+// Get the current date using Day.js
+const currentDate = dayjs().format("dddd, MMMM D");
+
+// Append the current date to the header element
+$("header").append(`<h2>${currentDate}</h2>`);
+
+$("#clear").click(function(event) {
+  event.preventDefault();
+  if (confirm("Are you sure you want to clear all?  Click 'OK' for yes. ")) {
+   $(".description").val("");
+  localStorage.clear();
+} else {
+  alert("Nothing has been cleared.");
+}
+ 
+})
