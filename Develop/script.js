@@ -2,6 +2,24 @@
 // Select all save buttons
 const saveButtons = document.querySelectorAll(".saveBtn");
 
+
+// creating function to the colour of the text boxes based on past, present, future
+$(".timeContainer").children().each(function () {
+  var timeContainer = $(this).attr("id").split("-")[1];
+
+  if (currentTime === timeContainer) {
+    $(this).addClass("present");
+    $(this).children(".description").addClass("present");
+  } else if (currentTime < timeContainer) {
+     $(this).removeClass("present");
+      $(this).addClass("future"); 
+  } else if (currentTime > timeContainer) {
+    $(this).removeClass("future");
+    $(this).addClass("past");
+  }
+
+});
+
 // Add click event listener to each save button
 saveButtons.forEach((saveButton) => {
   saveButton.addEventListener("click", function () {

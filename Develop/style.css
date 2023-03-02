@@ -44,67 +44,17 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-#hour-9 {
-  background-color: lightblue;
+.past {
+  background-color: red;
   color: white;
 }
 
-#hour-10 {
-  background-color: lightblue;
+.present {
+  background-color: lightgray;
   color: white;
 }
 
-#hour-11 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-12 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-01 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-02 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-03 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-04 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-05 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-06 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-07 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-08 {
-  background-color: lightblue;
-  color: white;
-}
-
-#hour-09 {
+.future {
   background-color: lightblue;
   color: white;
 }
